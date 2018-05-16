@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Lankawe PartTime</string>
+    <string name="title_activity_welcome_screen">Lankawe PartTime</string>
+    <string name="title_activity_employee_login">EmployeeLoginActivity</string>
+    <string name="sign_in">Sign In</string>
+    <string name="user_name">Employee User Name</string>
+    <string name="password">Password</string>
+    <string name="new_user_sign_up_here">New User? Sign up here</string>
+    <string name="select_your_role_to_continue">Select Your Role to Continue</string>
+    <string name="employee">Employee</string>
+    <string name="employer">Employer</string>
+    <string name="title_activity_employer_login">EmployerLoginActivity</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="register">Register</string>
+    <string name="create_a_user_name">Create a User Name</string>
+    <string name="your_name_here">Your Name here</string>
+    <string name="create_a_password">Create a Password</string>
+    <string name="your_email_address">Your Email Address</string>
+    <string name="your_mobile_number">Your Mobile Number</string>
+    <string name="already_signed_up_click_to_login">Already Signed Up?Click to Login</string>
+    <string name="button">Sign In</string>
+    <string name="employer_user_name">Employer User Name</string>
+    <string name="company_name">Company Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="company_address">Company Address</string>
+    <string name="confirm_password">Confirm Password</string>
+
+
+
+</resources>

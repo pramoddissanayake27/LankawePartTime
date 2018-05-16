@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "79227142174",
+    "firebase_url": "https://lankaweparttime.firebaseio.com",
+    "project_id": "lankaweparttime",
+    "storage_bucket": "lankaweparttime.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:79227142174:android:c5886edcb6aeab0e",
+        "android_client_info": {
+          "package_name": "com.example.pramod_shash.lankaweparttime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "79227142174-j2j6dpdojq4jbfuhkn9npofb18ei6t6p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMoI0EBA4UuNGXr_WpVhCvfoCJ4hkuJR4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
