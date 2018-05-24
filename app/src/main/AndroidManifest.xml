@@ -26,7 +26,8 @@
         <activity android:name=".EmployeeRegistrationActivity" />
         <activity android:name=".EmployeeHomeActivity" />
         <activity android:name=".EmployerLoginActivity" />
-        <activity android:name=".EmployerRegistrationActivity"></activity>
+        <activity android:name=".EmployerRegistrationActivity" />
+        <activity android:name=".EmployerHomeActivity"></activity>
     </application>
 
 </manifest>
