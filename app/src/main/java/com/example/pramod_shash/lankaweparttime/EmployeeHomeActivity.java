@@ -1,6 +1,7 @@
 package com.example.pramod_shash.lankaweparttime;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -23,8 +24,9 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
 public class EmployeeHomeActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
-    private Button logOut;
     Toolbar toolbar;
+    int toolbarColorValue = Color.parseColor("#576094");
+    int toolbarTextColorValue = Color.parseColor("#FFFFFF");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,17 +34,12 @@ public class EmployeeHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_employee_home);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        logOut = (Button)findViewById(R.id.btnLogOut);
 
-        logOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               Logout();
-            }
-        });
 
         toolbar = (Toolbar)findViewById(R.id.toolbarEmployee);
-        toolbar.setTitle("Material drawer test");
+        toolbar.setTitle("Lankawe Part-time");
+        toolbar.setTitleTextColor(toolbarTextColorValue);
+        toolbar.setBackgroundColor(toolbarColorValue);
 
         //Mike Penz material drawer
 
@@ -63,8 +60,11 @@ public class EmployeeHomeActivity extends AppCompatActivity {
 
         //if you want to update the items at a later time it is recommended to keep it in a variable
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName("Home");
-        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(2).withName("Settings");
-        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(3).withName("Jobs");
+        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(2).withName("Jobs");
+        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(3).withName("Accepted Jobs");
+        PrimaryDrawerItem item4 = new PrimaryDrawerItem().withIdentifier(4).withName("My Profile");
+        PrimaryDrawerItem item5 = new PrimaryDrawerItem().withIdentifier(5).withName("Settings");
+        PrimaryDrawerItem item6 = new PrimaryDrawerItem().withIdentifier(6).withName("Log Out");
 
         //create the drawer and remember the `Drawer` result object
         Drawer result = new DrawerBuilder()
@@ -72,7 +72,7 @@ public class EmployeeHomeActivity extends AppCompatActivity {
                 .withAccountHeader(headerResult)
                 .withToolbar(toolbar)
                 .addDrawerItems(
-                        item1, item2,item3
+                        item1, item2,item3,item4,item5,item6
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
@@ -82,6 +82,9 @@ public class EmployeeHomeActivity extends AppCompatActivity {
                             case 1 : break;
                             case 2 : break;
                             case 3 : break;
+                            case 4 : break;
+                            case 5 : break;
+                            case 6 : Logout();
                         }
                         return true;
                     }
@@ -95,7 +98,7 @@ public class EmployeeHomeActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu) {  // This part is not used
         getMenuInflater().inflate(R.menu.rightmenu, menu);
         return super.onCreateOptionsMenu(menu);
     }
