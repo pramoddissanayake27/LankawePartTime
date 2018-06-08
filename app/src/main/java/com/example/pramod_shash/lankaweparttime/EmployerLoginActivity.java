@@ -72,7 +72,7 @@ public class EmployerLoginActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
                     progressDialog.dismiss();
                     Toast.makeText(EmployerLoginActivity.this,"Login Successful!",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(EmployerLoginActivity.this, EmployeeHomeActivity.class));
+                    startActivity(new Intent(EmployerLoginActivity.this, EmployerHomeActivity.class));
                 }else {
                     Toast.makeText(EmployerLoginActivity.this,"Login Failed!",Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
