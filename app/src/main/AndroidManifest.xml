@@ -27,12 +27,16 @@
         <activity
             android:name=".EmployeeHomeActivity"
             android:label="@string/title_activity_employee_home"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".EmployerLoginActivity" />
         <activity android:name=".EmployerRegistrationActivity" />
-        <activity android:name=".EmployerHomeActivity"></activity>
+        <activity
+            android:name=".EmployerHomeActivity"
+            android:label="EmployerHomeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".QualificationsCheckingActivity" />
+        <activity android:name=".QualificationsYesActivity" />
+        <activity android:name=".QualificationsNoActivity"></activity>
     </application>
 
 </manifest>
