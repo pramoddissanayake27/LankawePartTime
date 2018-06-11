@@ -14,11 +14,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class EmployeeRegistrationActivity extends AppCompatActivity {
     private EditText userName,password,confirmPassword,email,mobileNumber;
     private Button btnRegister;
     private TextView tvLogin;
+    String userName1,password1,confirmPassword1,email1,mobileNumber1;
 
     private FirebaseAuth firebaseAuth;   //Create an instance of Firebase authenticator
 
@@ -43,8 +46,11 @@ public class EmployeeRegistrationActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
+                                sendUserData();
                                 Toast.makeText(EmployeeRegistrationActivity.this,"Registration Successful!",Toast.LENGTH_SHORT).show();
-                                //Ok.. then if the registration is sucessful go back to the login page.
+                                firebaseAuth.signOut();
+                                finish();
+                                //Ok.. then if the registration is successful go back to the login page.
                                 startActivity(new Intent(EmployeeRegistrationActivity.this,EmployeeLoginActivity.class));
                             }else{
                                 Toast.makeText(EmployeeRegistrationActivity.this,"Registration Failed!",Toast.LENGTH_SHORT).show();
@@ -75,11 +81,12 @@ public class EmployeeRegistrationActivity extends AppCompatActivity {
     }
     private Boolean validate(){
         Boolean result = false;
-        String userName1 = userName.getText().toString();
-        String password1 = password.getText().toString();
-        String confirmPassword1 = confirmPassword.getText().toString();
-        String email1 = email.getText().toString();
-        String mobileNumber1 = mobileNumber.getText().toString();
+
+        userName1 = userName.getText().toString();
+        password1 = password.getText().toString();
+        confirmPassword1 = confirmPassword.getText().toString();
+        email1 = email.getText().toString();
+        mobileNumber1 = mobileNumber.getText().toString();
 
         if (userName1.isEmpty() || password1.isEmpty() || confirmPassword1.isEmpty() || email1.isEmpty() || mobileNumber1.isEmpty()){
             Toast.makeText(this, "Please Enter All the Details!", Toast.LENGTH_SHORT).show();
@@ -94,5 +101,12 @@ public class EmployeeRegistrationActivity extends AppCompatActivity {
     public void openEmployeeLoginActivity(){
         Intent intent = new Intent(this,EmployeeLoginActivity.class);
         startActivity(intent);
+    }
+
+    private void sendUserData(){
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = firebaseDatabase.getReference(firebaseAuth.getUid());
+        EmployeeUserProfile employeeUserProfile = new EmployeeUserProfile(userName1,email1,mobileNumber1);
+        myRef.setValue(employeeUserProfile);
     }
 }

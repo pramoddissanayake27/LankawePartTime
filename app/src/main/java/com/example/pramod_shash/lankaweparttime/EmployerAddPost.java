@@ -95,6 +95,7 @@ public class EmployerAddPost extends AppCompatActivity {
                 placeNameText.setText(place.getName());
                 placeAddressText.setText(place.getAddress());
 
+
             }else{
              android.util.Log.i(TAG,"in ooooooooo ");
             }
