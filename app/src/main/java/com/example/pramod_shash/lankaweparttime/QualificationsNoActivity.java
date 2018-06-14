@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class QualificationsNoActivity extends AppCompatActivity {
@@ -62,5 +63,8 @@ public class QualificationsNoActivity extends AppCompatActivity {
 
     private void sendNewJobdata(){
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = firebaseDatabase.getReference("jobs/withNoQualifications");//setting database reference
+        JobCreatingWithNoQualifications jobCreatingWithNoQualifications = new JobCreatingWithNoQualifications(jobName2,jobDescription2,numberOfEmployees2,paymentPerEach2,date2,contactNumber2,location2);
+        myRef.push().setValue(jobCreatingWithNoQualifications);
     }
 }

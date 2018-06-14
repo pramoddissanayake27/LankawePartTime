@@ -105,8 +105,8 @@ public class EmployeeRegistrationActivity extends AppCompatActivity {
 
     private void sendUserData(){
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = firebaseDatabase.getReference(firebaseAuth.getUid());
+        DatabaseReference myRef = firebaseDatabase.getReference("users/Employees"); //firebaseauth.getUid
         EmployeeUserProfile employeeUserProfile = new EmployeeUserProfile(userName1,email1,mobileNumber1);
-        myRef.setValue(employeeUserProfile);
+        myRef.push().setValue(employeeUserProfile);
     }
 }

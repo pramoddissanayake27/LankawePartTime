@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class QualificationsYesActivity extends AppCompatActivity {
@@ -63,5 +64,9 @@ public class QualificationsYesActivity extends AppCompatActivity {
 
     private void sendNewJobdata(){
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = firebaseDatabase.getReference("jobs/withQualifications");
+        JobCreatingWithQualifications jobCreatingWithQualifications = new JobCreatingWithQualifications(jobName1,jobDescription1,numberOfEmployees1, paymentPerEach1, duration1, date1, contactNumber1, location1);
+        myRef.push().setValue(jobCreatingWithQualifications);
+
     }
 }
