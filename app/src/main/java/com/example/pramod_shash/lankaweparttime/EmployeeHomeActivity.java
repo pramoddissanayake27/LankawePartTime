@@ -82,7 +82,7 @@ public class EmployeeHomeActivity extends AppCompatActivity {
                             case 1 : break;
                             case 2 : break;
                             case 3 : break;
-                            case 4 : break;
+                            case 4 : startActivity(new Intent(EmployeeHomeActivity.this,EmployeeMyProfile.class));
                             case 5 : break;
                             case 6 : Logout();
                         }

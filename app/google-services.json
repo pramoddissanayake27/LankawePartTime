@@ -15,12 +15,24 @@
       },
       "oauth_client": [
         {
+          "client_id": "79227142174-b3fuanbpd9ril6b7vsglmb0ies00osvf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pramod_shash.lankaweparttime",
+            "certificate_hash": "665e9cbdd8f7a037daf9a15d32f893aca052db25"
+          }
+        },
+        {
           "client_id": "79227142174-rqcukp7rdq8mof58a8n8uh54ght2b2rd.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.pramod_shash.lankaweparttime",
             "certificate_hash": "687db2c3c7d6ac374794f7d7dccba57ac19b7182"
           }
+        },
+        {
+          "client_id": "79227142174-j2j6dpdojq4jbfuhkn9npofb18ei6t6p.apps.googleusercontent.com",
+          "client_type": 3
         },
         {
           "client_id": "79227142174-j2j6dpdojq4jbfuhkn9npofb18ei6t6p.apps.googleusercontent.com",
