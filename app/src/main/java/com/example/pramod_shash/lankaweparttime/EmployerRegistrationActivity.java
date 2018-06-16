@@ -14,12 +14,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class EmployerRegistrationActivity extends AppCompatActivity {
 
     private EditText companyName, email, password, confirmPassword;
     private Button btnRegister2;
     private TextView tvLogin2;
+    String companyName1, password2, confirmPassword2, email2;
 
     private FirebaseAuth firebaseAuth;
 
@@ -44,6 +47,7 @@ public class EmployerRegistrationActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
+                                sendUserData();
                                 Toast.makeText(EmployerRegistrationActivity.this,"Registration Successful!",Toast.LENGTH_SHORT).show();
                                 //Ok.. then if the registration is successful go back to the login page.
                                 startActivity(new Intent(EmployerRegistrationActivity.this,EmployeeLoginActivity.class));
@@ -75,11 +79,12 @@ public class EmployerRegistrationActivity extends AppCompatActivity {
     }
 
     private Boolean validate(){
+
         Boolean result = false;
-        String companyName1 = companyName.getText().toString();
-        String password2 = password.getText().toString();
-        String confirmPassword2 = confirmPassword.getText().toString();
-        String email2 = email.getText().toString();
+        companyName1 = companyName.getText().toString();
+        password2 = password.getText().toString();
+        confirmPassword2 = confirmPassword.getText().toString();
+        email2 = email.getText().toString();
         if (companyName1.isEmpty() || password2.isEmpty() || confirmPassword2.isEmpty() || email2.isEmpty()){
             Toast.makeText(this, "Please Enter All the Details!", Toast.LENGTH_SHORT).show();
         }else if( !password2.equals(confirmPassword2)){
@@ -88,5 +93,12 @@ public class EmployerRegistrationActivity extends AppCompatActivity {
             result = true;
         }
         return result;
+    }
+
+    private void sendUserData(){
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = firebaseDatabase.getReference("users/Employers"); //firebaseauth.getUid
+        EmployerUserProfile employerUserProfile = new EmployerUserProfile(companyName1, email2);
+        myRef.push().setValue(employerUserProfile);
     }
 }

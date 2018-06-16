@@ -16,41 +16,41 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class EmployeeMyProfile extends AppCompatActivity {
-     private ImageView profilepic,BackPic,employeeedit;
-     private TextView  employeename,employeeemail1,employeephonenumber;
-     private FirebaseAuth firebaseAuth;
-     private FirebaseDatabase firebaseDatabase;
+public class EmployerMyProfile extends AppCompatActivity {
+    private ImageView employerprofilepic,BackPic,employeredit;
+    private TextView employercompanyname,employeremail1;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseDatabase firebaseDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_employee_my_profile);
+        setContentView(R.layout.activity_employer_my_profile);
 
-
-        profilepic =findViewById(R.id.profileimage);
+        employerprofilepic =findViewById(R.id.profileimage);
         BackPic =findViewById(R.id.header_cover_image);
-        employeename=findViewById(R.id.employeename);
-        employeeemail1 =findViewById(R.id.employeeEmail);
-        employeephonenumber =findViewById(R.id.employeephoneNumber);
-        employeeedit =findViewById(R.id.employeeedit);
+        employercompanyname=findViewById(R.id.employercompanyname);
+        employeremail1 =findViewById(R.id.employerEmail);
+        employeredit =findViewById(R.id.employeredit);
 
 
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseDatabase=FirebaseDatabase.getInstance();
 
-        DatabaseReference datababaseReference =firebaseDatabase.getReference().child("users").child("Employees");
+        DatabaseReference datababaseReference =firebaseDatabase.getReference().child("users").child("Employers");
         datababaseReference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                EmployeeUserProfile employeeUserProfile =dataSnapshot.getValue(EmployeeUserProfile.class);
-                employeename.setText(employeeUserProfile.getUsername());
-                employeeemail1.setText(employeeUserProfile.getEmail());
-                employeephonenumber.setText(employeeUserProfile.getMobileNumber());
+                EmployerUserProfile employerUserProfile =dataSnapshot.getValue(EmployerUserProfile.class);
+                employercompanyname.setText(employerUserProfile.getCompanyName());
+                employeremail1.setText(employerUserProfile.getEmail1());
 
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+
 
             }
 
@@ -70,13 +70,13 @@ public class EmployeeMyProfile extends AppCompatActivity {
             }
         });
 
-        employeeedit.setOnClickListener(new View.OnClickListener() {   //set the instructions for the buttons in the Qualification checking interface
+        employeredit.setOnClickListener(new View.OnClickListener() {   //set the instructions for the buttons in the Qualification checking interface
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(EmployeeMyProfile.this,EmployeeMyProfilleEdit.class));
+                startActivity(new Intent(EmployerMyProfile.this,EmployerMyProfileEdit.class));
             }
         });
 
     }
+    }
 
-}

@@ -40,18 +40,18 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".EmployerLoginActivity" />
         <activity android:name=".EmployerRegistrationActivity" />
-
         <activity android:name=".EmployerAddPost" />
-        <activity android:name=".EmployeeMyProfile"></activity>
-
+        <activity android:name=".EmployeeMyProfile" />
         <activity
             android:name=".EmployerHomeActivity"
             android:label="EmployerHomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".QualificationsCheckingActivity" />
         <activity android:name=".QualificationsYesActivity" />
-        <activity android:name=".QualificationsNoActivity"></activity>
-
+        <activity android:name=".QualificationsNoActivity" />
+        <activity android:name=".EmployeeMyProfilleEdit" />
+        <activity android:name=".EmployerMyProfile" />
+        <activity android:name=".EmployerMyProfileEdit"></activity>
     </application>
 
 </manifest>
