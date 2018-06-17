@@ -36,7 +36,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".QualificationsCheckingActivity" />
         <activity android:name=".QualificationsYesActivity" />
-        <activity android:name=".QualificationsNoActivity"></activity>
+        <activity android:name=".QualificationsNoActivity" />
+        <activity
+            android:name=".JobShowActivity"
+            android:label="@string/title_activity_job_show"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
