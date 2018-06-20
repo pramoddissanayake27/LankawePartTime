@@ -1,13 +1,21 @@
 package com.example.pramod_shash.lankaweparttime;
 
 public class JobCreatingWithQualifications {
-    public String jobName, jobDescription, numberOfEmployees, paymentPerEach, duration, date, contactNumber, location;
+    public String jobName;
+    public String jobDescription;
+    public String numberOfEmployees;
+    public String paymentPerEach;
+    public String duration;
+    public String date;
+    public String contactNumber;
+    public String location;
+    public String locationAddress;
 
     public JobCreatingWithQualifications(){
 
     }
 
-    public JobCreatingWithQualifications(String jobName, String jobDescription, String numberOfEmployees, String paymentPerEach, String duration, String date, String contactNumber, String location) {
+    public JobCreatingWithQualifications(String jobName, String jobDescription, String numberOfEmployees, String paymentPerEach, String duration, String date, String contactNumber, String location, String locationAddress) {
         this.jobName = jobName;
         this.jobDescription = jobDescription;
         this.numberOfEmployees = numberOfEmployees;
@@ -16,6 +24,7 @@ public class JobCreatingWithQualifications {
         this.date = date;
         this.contactNumber = contactNumber;
         this.location = location;
+        this.locationAddress = locationAddress;
     }
 
     public String getJobName() {
@@ -80,6 +89,14 @@ public class JobCreatingWithQualifications {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getLocationAddress() {
+        return locationAddress;
+    }
+
+    public void setLocationAddress(String locationAddress) {
+        this.locationAddress = locationAddress;
     }
 }
    // Helper class for QualificationsYes Activity

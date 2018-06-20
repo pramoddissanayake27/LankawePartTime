@@ -109,7 +109,7 @@ public class QualificationsYesActivity extends AppCompatActivity {
     private void sendNewJobdata(){
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference myRef = firebaseDatabase.getReference("jobs/withQualifications");
-        JobCreatingWithQualifications jobCreatingWithQualifications = new JobCreatingWithQualifications(jobName1,jobDescription1,numberOfEmployees1, paymentPerEach1, duration1, date1, contactNumber1, location1);
+        JobCreatingWithQualifications jobCreatingWithQualifications = new JobCreatingWithQualifications(jobName1,jobDescription1,numberOfEmployees1, paymentPerEach1, duration1, date1, contactNumber1, location1,locationAddress1);
         myRef.push().setValue(jobCreatingWithQualifications);
 
     }

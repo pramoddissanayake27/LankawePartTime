@@ -99,7 +99,7 @@ public class QualificationsNoActivity extends AppCompatActivity {
     private void sendNewJobdata(){
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference myRef = firebaseDatabase.getReference("jobs/withNoQualifications");//setting database reference
-        JobCreatingWithNoQualifications jobCreatingWithNoQualifications = new JobCreatingWithNoQualifications(jobName2,jobDescription2,numberOfEmployees2,paymentPerEach2,date2,contactNumber2,location3 );
+        JobCreatingWithNoQualifications jobCreatingWithNoQualifications = new JobCreatingWithNoQualifications(jobName2,jobDescription2,numberOfEmployees2,paymentPerEach2,date2,contactNumber2,location3,locationAddress3 );
         myRef.push().setValue(jobCreatingWithNoQualifications);
     }
 
