@@ -8,9 +8,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -22,11 +32,23 @@ import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
+import java.util.ArrayList;
+
 public class EmployeeHomeActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     Toolbar toolbar;
     int toolbarColorValue = Color.parseColor("#576094");
     int toolbarTextColorValue = Color.parseColor("#FFFFFF");
+
+    private ListView jobList;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
+
+    private ArrayList<String> arrayList;
+    private ArrayAdapter<String> adapter;
+    JobCreatingWithQualifications jobCreatingWithQualifications;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +56,30 @@ public class EmployeeHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_employee_home);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        jobCreatingWithQualifications = new JobCreatingWithQualifications();
+        jobList = findViewById(R.id.lvJobList);
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("jobs/withQualifications");
+        arrayList = new ArrayList<>();
+        adapter = new ArrayAdapter<String>(this, R.layout.job_info, R.id.jobInfo, arrayList);
+
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()){
+                        jobCreatingWithQualifications = ds.getValue(JobCreatingWithQualifications.class);
+                        arrayList.add(jobCreatingWithQualifications.getJobName().toString()+"\n"+jobCreatingWithQualifications.getJobDescription().toString()+"\n"+jobCreatingWithQualifications.getNumberOfEmployees().toString()+"\n"+jobCreatingWithQualifications.getPaymentPerEach().toString()+"\n"+jobCreatingWithQualifications.getContactNumber().toString()+"\n"+jobCreatingWithQualifications.getDate().toString()+"\n"+jobCreatingWithQualifications.getDuration().toString()+"\n"+jobCreatingWithQualifications.location.toString());
+                }
+                jobList.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
 
         toolbar = (Toolbar)findViewById(R.id.toolbarEmployee);
