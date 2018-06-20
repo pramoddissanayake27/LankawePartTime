@@ -72,12 +72,13 @@ public class EmployeeMyProfilleEdit extends AppCompatActivity {
         save2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String newemployeename  =employeeusernameedit.getText().toString();
                 String newemployeeemail  =employeeemailedit.getText().toString();
                 String newemployeemobilenbr  =employeemobilenbredit.getText().toString();
                 EmployeeUserProfile employeeUserProfile=new EmployeeUserProfile(newemployeename,newemployeeemail,newemployeemobilenbr);
-                datababaseReference.child("UserID").setValue(employeeUserProfile);
-                startActivity(new Intent(EmployeeMyProfilleEdit.this,EmployeeUserProfile .class));
+                datababaseReference.setValue(employeeUserProfile);
+
                 finish();
 
 

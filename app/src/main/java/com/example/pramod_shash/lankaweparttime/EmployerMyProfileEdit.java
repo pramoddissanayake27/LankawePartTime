@@ -72,8 +72,7 @@ public class EmployerMyProfileEdit extends AppCompatActivity {
                 String companyName  =employercompanynameedit1.getText().toString();
                 String email1  =employeremailedit1.getText().toString();
                 EmployerUserProfile employerUserProfile=new EmployerUserProfile(companyName,email1);
-                datababaseReference.child("UserID").setValue(employerUserProfile);
-                startActivity(new Intent(EmployerMyProfileEdit.this,EmployerMyProfile .class));
+                datababaseReference.setValue(employerUserProfile);
                 finish();
 
 

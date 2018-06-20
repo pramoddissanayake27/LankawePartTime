@@ -36,6 +36,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:15.0.0'
     implementation 'com.google.firebase:firebase-database:15.0.0'
 
+    implementation 'com.basgeekball:awesome-validation:2.0'
+
     implementation("com.mikepenz:materialdrawer:6.0.0@aar") {
         //dependancy for Mike Penz matetial drawer.
         transitive = true
