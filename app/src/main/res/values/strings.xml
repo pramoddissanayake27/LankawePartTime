@@ -30,6 +30,24 @@
     <string name="do_you_need_extra_qualifications_for_this_job">Do you need extra Qualifications for this job?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="employeeoccupation">Your Occupation</string>
+    <string name="editPassword">Your Age </string>
+    <string name="edit_company_name">Edit Your Company Name</string>
+    <string name="edit_email">Edit Your Email </string>
+    <string name="Edit_save_employer">Save </string>
+    <string name="edit_emplouee_username">Edit Your User Name </string>
+    <string name="edit_emplouee_email">Edit Your Email </string>
+    <string name="edit_emplouee_mobile_number">Edit your Mobile Number </string>
+    <string name="edit_save_employee">Save</string>
+    <string name="appvalidation">ValidationTutorial</string>
+    <string name="user_nameVal">Enter Your User Name</string>
+    <string name="User_mailVal">Enter Correct Email</string>
+    <string name="User_phonenbrVal">Enter Correct Mobile Number</string>
+    <string name="User_passwordVal">Enter Password(more than 8 characters , contain numbers and symbols)</string>
+    <string name="User_ConfirmationpassVal">Password Do Not match</string>
+
+    <string name="user_companynameVal">Enter Your Company Name</string>
+    <string name="user_companyEmailVal">Enter Your Company Email</string>
 
 
 </resources>

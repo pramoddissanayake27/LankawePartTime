@@ -158,6 +158,21 @@
         app:layout_constraintTop_toBottomOf="@+id/etDate"
         app:layout_constraintVertical_bias="0.007" />
 
+
+    <Button
+        android:id="@+id/btGetPlace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_centerHorizontal="true"
+        android:text="Add Location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etContactNumber" />
+
+
     <EditText
         android:id="@+id/etLocation"
         android:layout_width="275dp"
@@ -167,7 +182,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Location"
         android:inputType="textPersonName"
@@ -178,6 +193,30 @@
         app:layout_constraintTop_toBottomOf="@+id/etContactNumber"
         app:layout_constraintVertical_bias="0.028" />
 
+
+    <EditText
+        android:id="@+id/etLocationAddress"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1128dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Location address"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etLocation"
+        app:layout_constraintVertical_bias="0.028" />
+
+
+
+
     <Button
         android:id="@+id/btnCreateJob"
         android:layout_width="wrap_content"
@@ -186,7 +225,7 @@
         android:text="Create Job"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etLocation" />
+        app:layout_constraintTop_toBottomOf="@+id/etLocationAddress" />
 
 </android.support.constraint.ConstraintLayout>
 

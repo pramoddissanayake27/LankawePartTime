@@ -15,7 +15,7 @@ public class QualificationsCheckingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_qualifications_checking);
 
         Yes = (Button)findViewById(R.id.btnYesQualifications);
-        No  = (Button)findViewById(R.id.btnNoQualifications);
+        No  = (Button)findViewById(R.id.btnNoQualifications );
 
         Yes.setOnClickListener(new View.OnClickListener() {   //set the instructions for the buttons in the Qualification checking interface
             @Override

@@ -82,7 +82,7 @@ public class EmployerHomeActivity extends AppCompatActivity {
                             case 1 : break;
                             case 2 : startActivity(new Intent(EmployerHomeActivity.this,QualificationsCheckingActivity.class));
                             case 3 : break;
-                            case 4 : break;
+                            case 4 : startActivity(new Intent(EmployerHomeActivity.this,EmployerMyProfile .class));
                             case 5 : break;
                             case 6 : Logout();
                         }
