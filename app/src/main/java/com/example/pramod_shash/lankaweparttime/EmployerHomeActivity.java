@@ -2,6 +2,7 @@ package com.example.pramod_shash.lankaweparttime;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.sax.StartElementListener;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -34,7 +35,6 @@ public class EmployerHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_employer_home);
 
         firebaseAuth = FirebaseAuth.getInstance();
-
 
         toolbar = (Toolbar)findViewById(R.id.toolbarEmployer);
         toolbar.setTitle("Lankawe Part-time");
