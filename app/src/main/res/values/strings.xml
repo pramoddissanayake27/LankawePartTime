@@ -32,7 +32,7 @@
     <string name="no">No</string>
     <string name="employeeoccupation">Your Occupation</string>
     <string name="editPassword">Your Age </string>
-    <string name="edit_company_name">Edit Your Company Name</string>
+    <string name="edit_company_name">Edit Your Name</string>
     <string name="edit_email">Edit Your Email </string>
     <string name="Edit_save_employer">Save </string>
     <string name="edit_emplouee_username">Edit Your User Name </string>
@@ -48,6 +48,11 @@
 
     <string name="user_companynameVal">Enter Your Company Name</string>
     <string name="user_companyEmailVal">Enter Your Company Email</string>
+    <string name="users">users</string>
+    <string name="employers">Employers</string>
+    <string name="companyName">companyName</string>
+    <string name="email1">email1</string>
+    <string name="title_activity_getting_direction_for_employees">Map</string>
 
 
 </resources>

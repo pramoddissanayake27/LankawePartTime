@@ -41,7 +41,7 @@ public class WelcomeScreenActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void openEmployerLoginActivity(){
-        Intent intent = new Intent(this,EmployerLoginActivity.class);
+        Intent intent = new Intent(this,GettingDirectionForEmployees.class);
         startActivity(intent);
     }
 }

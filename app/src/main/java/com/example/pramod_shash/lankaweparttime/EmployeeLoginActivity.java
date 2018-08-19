@@ -41,6 +41,7 @@ public class EmployeeLoginActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
+
         if(user != null){
             finish();
             startActivity(new Intent(EmployeeLoginActivity.this, EmployeeHomeActivity.class));

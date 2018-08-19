@@ -56,7 +56,7 @@ public class EmployerRegistrationActivity extends AppCompatActivity {
                                 sendUserData();
                                 Toast.makeText(EmployerRegistrationActivity.this,"Registration Successful!",Toast.LENGTH_SHORT).show();
                                 //Ok.. then if the registration is successful go back to the login page.
-                                startActivity(new Intent(EmployerRegistrationActivity.this,EmployeeLoginActivity.class));
+                                startActivity(new Intent(EmployerRegistrationActivity.this,EmployerLoginActivity.class));
                             }else{
                                 Toast.makeText(EmployerRegistrationActivity.this,"Registration Failed!",Toast.LENGTH_SHORT).show();
                             }

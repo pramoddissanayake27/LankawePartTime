@@ -72,8 +72,11 @@ public class QualificationsNoActivity extends AppCompatActivity {
                     Toast.makeText(QualificationsNoActivity.this,"New Job Created!",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(QualificationsNoActivity.this,EmployerHomeActivity.class));
                 }
+                NotificationGenerator.openActivityNotification(getApplicationContext());
             }
         });
+
+
     }
 
     private Boolean validate(){

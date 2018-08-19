@@ -1,22 +1,28 @@
 package com.example.pramod_shash.lankaweparttime;
 
 import android.Manifest;
+import android.app.Notification;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
 
@@ -74,6 +80,8 @@ public class QualificationsYesActivity extends AppCompatActivity {
         android.util.Log.i(TAG,"in oncreate methode ");
 
 
+
+
         createJob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,10 +89,17 @@ public class QualificationsYesActivity extends AppCompatActivity {
                     sendNewJobdata();
                     Toast.makeText(QualificationsYesActivity.this,"New Job Created!",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(QualificationsYesActivity.this,EmployerHomeActivity.class));
+
+
                 }
+                NotificationGenerator.openActivityNotification(getApplicationContext());
+
             }
         });
     }
+
+
+
     private Boolean validate(){
         Boolean result = false;
 

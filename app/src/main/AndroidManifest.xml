@@ -7,6 +7,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -49,16 +51,16 @@
         <activity android:name=".QualificationsCheckingActivity" />
         <activity android:name=".QualificationsYesActivity" />
         <activity android:name=".QualificationsNoActivity" />
-
         <activity android:name=".EmployeeMyProfilleEdit" />
         <activity android:name=".EmployerMyProfile" />
-        <activity android:name=".EmployerMyProfileEdit"></activity>
-
-
-           // android:name=".JobShowActivity"
-            //android:label="@string/title_activity_job_show"
-            //android:theme="@style/AppTheme.NoActionBar">
-
+        <activity android:name=".EmployerMyProfileEdit" />
+        // android:name=".JobShowActivity"
+        //android:label="@string/title_activity_job_show"
+        //android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".GettingDirectionForEmployees"
+            android:label="@string/title_activity_getting_direction_for_employees" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

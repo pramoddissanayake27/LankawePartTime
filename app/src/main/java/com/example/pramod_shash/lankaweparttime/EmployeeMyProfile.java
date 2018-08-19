@@ -1,6 +1,7 @@
 package com.example.pramod_shash.lankaweparttime;
 
 import android.content.Intent;
+import android.content.SearchRecentSuggestionsProvider;
 import android.nfc.Tag;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,7 +27,7 @@ public class EmployeeMyProfile extends AppCompatActivity {
      private TextView  employeename,employeeemail1,employeephonenumber;
      private FirebaseAuth firebaseAuth;
      private FirebaseDatabase firebaseDatabase;
-      private  FirebaseUser firebaseUser;
+      private  FirebaseUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,44 +44,38 @@ public class EmployeeMyProfile extends AppCompatActivity {
 
 
         firebaseAuth=FirebaseAuth.getInstance();
-        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-         uid = firebaseUser.getUid();
+       // FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
         firebaseDatabase=FirebaseDatabase.getInstance();
 
 
-        DatabaseReference datababaseReference =firebaseDatabase.getReference().child("users").child("Employees");
 
-        datababaseReference.addChildEventListener(new ChildEventListener() {
+        user=FirebaseAuth.getInstance() .getCurrentUser()  ;
+        uid =user.getUid();
+
+
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String email = user.getEmail();
+            String name=user.getDisplayName();
+
+            String mobilenbr=user.getPhoneNumber();
+
+            employeeemail1.setText(email);
+            employeename.setText(name);
+            employeephonenumber.setText(mobilenbr);
+
+        }
+
+
+
+            employeeedit.setOnClickListener(new View.OnClickListener() {   //set the instructions for the buttons in the Qualification checking interface
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
-                EmployeeUserProfile employeeUserProfile =dataSnapshot.getValue(EmployeeUserProfile.class);
-                employeename.setText(employeeUserProfile.getUsername());
-                employeeemail1.setText(employeeUserProfile.getEmail());
-                employeephonenumber.setText(employeeUserProfile.getMobileNumber());
-
+            public void onClick(View view) {
+                startActivity(new Intent(EmployeeMyProfile.this,EmployeeMyProfilleEdit.class));
             }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        } );
+        });
 
 
     }

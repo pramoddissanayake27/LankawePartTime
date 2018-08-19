@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class JobShowActivity extends AppCompatActivity {
-    private TextView job, description, noOfEmployees, paymentPerEach, duration, date, contact, location;
+    private TextView job, description, noOfEmployees, paymentPerEach, duration, date, contact, location,locationAddress;
     private FirebaseDatabase firebaseDatabase;
 
     @Override
@@ -34,10 +34,12 @@ public class JobShowActivity extends AppCompatActivity {
         date = findViewById(R.id.tvDate_s);
         contact = findViewById(R.id.tvContact_s);
         location = findViewById(R.id.tvLocation_s);
+        locationAddress=findViewById(R.id.tvLocation_address);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
 
         DatabaseReference databaseReference = firebaseDatabase.getReference("jobs/withQualifications");
+
         databaseReference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -51,6 +53,7 @@ public class JobShowActivity extends AppCompatActivity {
                 date.setText(jobCreatingWithQualifications.getDate());
                 contact.setText(jobCreatingWithQualifications.getContactNumber());
                 location.setText(jobCreatingWithQualifications.getLocation());
+                locationAddress.setText(jobCreatingWithQualifications.getLocationAddress());
             }
 
             @Override
@@ -73,8 +76,6 @@ public class JobShowActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 
 }
