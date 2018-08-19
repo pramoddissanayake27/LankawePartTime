@@ -1,6 +1,10 @@
 package com.example.pramod_shash.lankaweparttime;
 
-public class JobCreatingWithQualifications {
+import java.io.Serializable;
+
+public class JobCreatingWithQualifications implements Serializable {
+    private static final long serialVersionUID = 1644464645297242172L;
+
     public String jobName;
     public String jobDescription;
     public String numberOfEmployees;

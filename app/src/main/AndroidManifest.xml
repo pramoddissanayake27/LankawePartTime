@@ -40,7 +40,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".EmployerLoginActivity" />
         <activity android:name=".EmployerRegistrationActivity" />
-        <activity android:name=".EmployerAddPost" />
         <activity android:name=".EmployeeMyProfile" />
         <activity
             android:name=".EmployerHomeActivity"
@@ -49,16 +48,14 @@
         <activity android:name=".QualificationsCheckingActivity" />
         <activity android:name=".QualificationsYesActivity" />
         <activity android:name=".QualificationsNoActivity" />
-
         <activity android:name=".EmployeeMyProfilleEdit" />
         <activity android:name=".EmployerMyProfile" />
-        <activity android:name=".EmployerMyProfileEdit"></activity>
-
-
-           // android:name=".JobShowActivity"
-            //android:label="@string/title_activity_job_show"
-            //android:theme="@style/AppTheme.NoActionBar">
-
+        <activity android:name=".EmployerMyProfileEdit" />
+        // android:name=".JobShowActivity"
+        //android:label="@string/title_activity_job_show"
+        //android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".EmployerAddPost" />
+        <activity android:name=".JobMoreDetailsActivity"></activity>
     </application>
 
 </manifest>

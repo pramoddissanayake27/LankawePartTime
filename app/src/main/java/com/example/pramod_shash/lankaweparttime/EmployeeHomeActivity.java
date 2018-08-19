@@ -1,9 +1,12 @@
 package com.example.pramod_shash.lankaweparttime;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,6 +36,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeeHomeActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
@@ -40,12 +44,16 @@ public class EmployeeHomeActivity extends AppCompatActivity {
     int toolbarColorValue = Color.parseColor("#576094");
     int toolbarTextColorValue = Color.parseColor("#FFFFFF");
 
-    private ListView jobList;
+    //private ListView jobList;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private List<JobCreatingWithQualifications> listItems;
+
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
 
-    private ArrayList<String> arrayList;
-    private ArrayAdapter<String> adapter;
+    //private ArrayList<String> arrayList;
+    //private ArrayAdapter<String> adapter;
     JobCreatingWithQualifications jobCreatingWithQualifications;
 
 
@@ -55,14 +63,24 @@ public class EmployeeHomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_home);
 
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading Jobs");
+        progressDialog.show();
+
         firebaseAuth = FirebaseAuth.getInstance();
         jobCreatingWithQualifications = new JobCreatingWithQualifications();
-        jobList = findViewById(R.id.lvJobList);
+
+        recyclerView = findViewById(R.id.rvJobList);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        listItems = new ArrayList<>();
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("jobs/withQualifications");
-        arrayList = new ArrayList<>();
-        adapter = new ArrayAdapter<String>(this, R.layout.job_info, R.id.jobInfo, arrayList);
+
+        adapter = new JobShowAdapter(listItems,this);
+        //adapter = new ArrayAdapter<String>(this, R.layout.job_info, R.id.jobInfo, arrayList);
 
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -70,9 +88,12 @@ public class EmployeeHomeActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()){
                         jobCreatingWithQualifications = ds.getValue(JobCreatingWithQualifications.class);
-                        arrayList.add(jobCreatingWithQualifications.getJobName().toString()+"\n"+jobCreatingWithQualifications.getJobDescription().toString()+"\n"+jobCreatingWithQualifications.getNumberOfEmployees().toString()+"\n"+jobCreatingWithQualifications.getPaymentPerEach().toString()+"\n"+jobCreatingWithQualifications.getContactNumber().toString()+"\n"+jobCreatingWithQualifications.getDate().toString()+"\n"+jobCreatingWithQualifications.getDuration().toString()+"\n"+jobCreatingWithQualifications.location.toString());
+                        listItems.add(jobCreatingWithQualifications);
                 }
-                jobList.setAdapter(adapter);
+
+                recyclerView.setAdapter(adapter);
+                progressDialog.dismiss();
+                //jobList.setAdapter(adapter);
             }
 
             @Override
@@ -158,4 +179,6 @@ public class EmployeeHomeActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }

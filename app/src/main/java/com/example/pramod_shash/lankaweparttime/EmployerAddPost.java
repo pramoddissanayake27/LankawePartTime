@@ -56,7 +56,7 @@ public class EmployerAddPost extends AppCompatActivity {
 
             }
         });
-       android.util.Log.i(TAG,"in oncreate methode ");
+        android.util.Log.i(TAG,"in oncreate methode ");
     }
 
     private void requestPermission() {
@@ -97,7 +97,7 @@ public class EmployerAddPost extends AppCompatActivity {
 
 
             }else{
-             android.util.Log.i(TAG,"in ooooooooo ");
+                android.util.Log.i(TAG,"in ooooooooo ");
             }
         }
         android.util.Log.i(TAG,"in onactivity methode ");
