@@ -45,6 +45,11 @@
             android:name=".EmployerHomeActivity"
             android:label="EmployerHomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TabTestActivity"
+            android:label="TabTestActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".QualificationsCheckingActivity" />
         <activity android:name=".QualificationsYesActivity" />
         <activity android:name=".QualificationsNoActivity" />
@@ -55,7 +60,8 @@
         //android:label="@string/title_activity_job_show"
         //android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".EmployerAddPost" />
-        <activity android:name=".JobMoreDetailsActivity"></activity>
+        <activity android:name=".JobMoreDetailsActivity" />
+        <!--<activity android:name=".TabTestActivity"></activity>-->
     </application>
 
 </manifest>
