@@ -21,7 +21,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
+import com.google.firebase.database.ValueEventListener;
 
 
 public class EmployerMyProfile extends AppCompatActivity {
@@ -55,29 +55,24 @@ public class EmployerMyProfile extends AppCompatActivity {
         //employeremail1.setText(currentuser.getEmail());
 
 
-        DatabaseReference databaseReference = firebaseDatabase.getReference("users/Employers");
 
+        final DatabaseReference datababaseReference =firebaseDatabase.getReference().child("users").child("Employers");
 
-        databaseReference.child(currentuser.getUid()).addChildEventListener(new ChildEventListener() {
+        datababaseReference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
-                String user_name=dataSnapshot.child("companyName").getValue().toString();
-                String user_email=dataSnapshot.child("email1").getValue().toString();
-
-                employercompanyname.setText(user_name);
-                employeremail1.setText(user_email);
+                EmployerUserProfile employerUserProfile =dataSnapshot.getValue(EmployerUserProfile.class);
+                employercompanyname.setText(employerUserProfile.getCompanyName());
+                employeremail1.setText(employerUserProfile.getEmail1());
 
 
-                // EmployerUserProfile employerUserProfile = dataSnapshot.getValue(EmployerUserProfile.class);
-                //  employeremail1.setText(currentuser.getEmail());
-                // employercompanyname.setText(employerUserProfile.getCompanyName());
-                // employeremail1.setText(employerUserProfile.getEmail1());
 
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+
 
             }
 
@@ -96,7 +91,6 @@ public class EmployerMyProfile extends AppCompatActivity {
 
             }
         });
-
 
         employeredit.setOnClickListener(new View.OnClickListener() {   //set the instructions for the buttons in the Qualification checking interface
             @Override

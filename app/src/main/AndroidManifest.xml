@@ -42,7 +42,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".EmployerLoginActivity" />
         <activity android:name=".EmployerRegistrationActivity" />
-        <activity android:name=".EmployerAddPost" />
         <activity android:name=".EmployeeMyProfile" />
         <activity
             android:name=".EmployerHomeActivity"
@@ -57,10 +56,15 @@
         // android:name=".JobShowActivity"
         //android:label="@string/title_activity_job_show"
         //android:theme="@style/AppTheme.NoActionBar">
+<<<<<<< HEAD
         <activity
             android:name=".GettingDirectionForEmployees"
             android:label="@string/title_activity_getting_direction_for_employees" />
         <activity android:name=".MainActivity"></activity>
+=======
+        <activity android:name=".EmployerAddPost" />
+        <activity android:name=".JobMoreDetailsActivity"></activity>
+>>>>>>> b8f5125294671a892834ddb6d5ed2785a4f08cb5
     </application>
 
 </manifest>

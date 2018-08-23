@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -25,10 +27,14 @@ public class EmployeeLoginActivity extends AppCompatActivity {
     private TextView tvRegister;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
+    AwesomeValidation awesomeValidation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_login);
+
+        awesomeValidation =new AwesomeValidation(ValidationStyle.BASIC);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -78,6 +84,7 @@ public class EmployeeLoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     progressDialog.dismiss();
+
                     Toast.makeText(EmployeeLoginActivity.this,"Login Successful!",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(EmployeeLoginActivity.this, EmployeeHomeActivity.class));
                 }else {

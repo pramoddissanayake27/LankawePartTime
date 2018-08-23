@@ -96,9 +96,9 @@ public class EmployeeRegistrationActivity extends AppCompatActivity {
         mobileNumber1 = mobileNumber.getText().toString();
 
         String regexPassword = "(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d])(?=.*[~`!@#\\$%\\^&\\*\\(\\)\\-_\\+=\\{\\}\\[\\]\\|\\;:\"<>,./\\?]).{8,}";
-        awesomeValidation.addValidation(EmployeeRegistrationActivity.this,R.id.etUserName,"[a-zA-Z\\s]+",R.string.app_name);
+        awesomeValidation.addValidation(EmployeeRegistrationActivity.this,R.id.etUserName,"[a-zA-Z\\s]+",R.string.jobname);
         awesomeValidation.addValidation(EmployeeRegistrationActivity.this,R.id.etEmail, Patterns.EMAIL_ADDRESS,R.string.User_mailVal);
-        awesomeValidation.addValidation(EmployeeRegistrationActivity.this,R.id.etMobileNumber, RegexTemplate.TELEPHONE,R.string.User_phonenbrVal);
+        awesomeValidation.addValidation(EmployeeRegistrationActivity.this,R.id.etMobileNumber,RegexTemplate.TELEPHONE,R.string.User_phonenbrVal);
         awesomeValidation.addValidation(EmployeeRegistrationActivity.this,R.id.etPassword,regexPassword,R.string.User_passwordVal);
         awesomeValidation.addValidation(EmployeeRegistrationActivity.this,R.id.etConfirmPassword,R.id.etPassword,R.string.User_ConfirmationpassVal);
 

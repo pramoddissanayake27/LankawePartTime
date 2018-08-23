@@ -43,40 +43,49 @@ public class EmployeeMyProfile extends AppCompatActivity {
         employeeedit =findViewById(R.id.employeeedit);
 
 
-        firebaseAuth=FirebaseAuth.getInstance();
-       // FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        firebaseAuth= FirebaseAuth.getInstance();
+        firebaseDatabase= FirebaseDatabase.getInstance();
 
-        firebaseDatabase=FirebaseDatabase.getInstance();
+        final DatabaseReference datababaseReference =firebaseDatabase.getReference().child("users").child("Employees");
+        datababaseReference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                EmployeeUserProfile employeeUserProfile =dataSnapshot.getValue(EmployeeUserProfile.class);
+                employeename.setText(employeeUserProfile.getUsername());
+                employeeemail1.setText(employeeUserProfile.getEmail());
+                employeephonenumber.setText(employeeUserProfile.getMobileNumber());
 
 
+            }
 
-        user=FirebaseAuth.getInstance() .getCurrentUser()  ;
-        uid =user.getUid();
-
-
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            String email = user.getEmail();
-            String name=user.getDisplayName();
-
-            String mobilenbr=user.getPhoneNumber();
-
-            employeeemail1.setText(email);
-            employeename.setText(name);
-            employeephonenumber.setText(mobilenbr);
-
-        }
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
 
 
-            employeeedit.setOnClickListener(new View.OnClickListener() {   //set the instructions for the buttons in the Qualification checking interface
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        employeeedit.setOnClickListener(new View.OnClickListener() {   //set the instructions for the buttons in the Qualification checking interface
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(EmployeeMyProfile.this,EmployeeMyProfilleEdit.class));
             }
         });
-
 
     }
 

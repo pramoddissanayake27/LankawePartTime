@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,6 +21,7 @@ public class EmployeeMyProfilleEdit extends AppCompatActivity {
     private Button save2;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
+    private FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class EmployeeMyProfilleEdit extends AppCompatActivity {
 
         firebaseAuth= FirebaseAuth.getInstance();
         firebaseDatabase= FirebaseDatabase.getInstance();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
         final DatabaseReference datababaseReference =firebaseDatabase.getReference().child("users").child("Employees");
         datababaseReference.addChildEventListener(new ChildEventListener() {
@@ -76,8 +79,20 @@ public class EmployeeMyProfilleEdit extends AppCompatActivity {
                 String newemployeename  =employeeusernameedit.getText().toString();
                 String newemployeeemail  =employeeemailedit.getText().toString();
                 String newemployeemobilenbr  =employeemobilenbredit.getText().toString();
-                EmployeeUserProfile employeeUserProfile=new EmployeeUserProfile(newemployeename,newemployeeemail,newemployeemobilenbr);
-                datababaseReference.setValue(employeeUserProfile);
+               EmployeeUserProfile employeeUserProfile=new EmployeeUserProfile(newemployeename,newemployeeemail,newemployeemobilenbr);
+                employeeUserProfile.setEmail(newemployeeemail);
+                employeeUserProfile.setMobileNumber(newemployeemobilenbr);
+                employeeUserProfile.setUsername(newemployeename);
+               datababaseReference.child(firebaseUser.getUid()).child("username").setValue(newemployeename);
+                datababaseReference.child(firebaseUser.getUid()).child("mobileNumber").setValue(newemployeemobilenbr);
+                datababaseReference.child(firebaseUser.getUid()).child("email").setValue(newemployeeemail);
+
+                save2.setOnClickListener(new View.OnClickListener() {   //set the instructions for the buttons in the Qualification checking interface
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(EmployeeMyProfilleEdit.this,EmployeeMyProfile.class));
+                    }
+                });
 
                 finish();
 
